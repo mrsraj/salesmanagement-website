@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.container {
+    background: linear-gradient(45deg, rgb(69, 120, 69), rgb(122, 79, 79), rgb(73, 73, 121), rgb(167, 86, 100));
+    display: flex;
+    justify-content: space-around;
+    align-content: baseline;
+    flex-wrap: wrap;
+    padding: 10px;
+    min-height: 100vh;
+    height: auto;
+    gap: 20px 0px;
+}
+
+.Today label {
+    font-size: 30px;
+    margin: 20px 0px 0px 0px;
+}
+
+p {
+    font-size: 22px;
+}

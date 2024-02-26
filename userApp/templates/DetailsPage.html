@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PaymentPage And Details Page</title>
+    <link rel="stylesheet" href="/static/Details.css" />
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="Today">
+        <label for="TodayData">Today's Selling</label>
+
+        {% if today_Selling %}
+          <p id="Data">{{ today_Selling.Qantity__sum }}</p>
+        {% endif %}
+
+        <label for="TodayData">Today's Selling Price</label>
+
+        {% if today_Selling_price %}
+          <p id="Data">{{today_Selling_price.price }}</p>
+        {% else %}
+          <p id="Data">0.00</p>
+        {% endif %}
+      </div>
+
+      <div class="Today">
+        <label for="TodayData">Today's Purchase</label>
+        {% if today_Purchase %}
+          <p id="Data">{{ today_Purchase.Qantity__sum }}</p>
+        {% endif %}
+
+        <label for="TodayData">Today's Purchase Price</label>
+        {% if today_Purchase_price %}
+          <p id="Data">{{ today_Purchase_price.price }}</p>
+        {% else %}
+          <p id="Data">0.00</p>
+        {% endif %}
+      </div>
+
+      <div class="Today">
+        <label for="">Selling of This Month</label>
+        {% if current_month_selling %}
+          <p id="Data">{{ current_month_selling.sum }}</p>
+        {% else %}
+          <p id="Data">Purchase:- 0.0</p>    
+        {% endif %}
+
+        <label for="">Price</label>
+        {% if current_month_selling_price %}
+          <p id="Data">{{ current_month_selling_price.price }}</p>
+          {% else %}
+          <p id="Data">Purchase:- 0.0</p>    
+        {% endif %}
+      </div>
+
+      <div class="Today">
+        <label for="">Purchase of This Month</label>
+        {% if current_month_Purchase %}
+          <p id="Data"> {{ current_month_Purchase.sum }}</p>
+        {% else %}
+          <p id="Data">Purchase:- 0.0</p>  
+        {% endif %}
+
+        <label for="">Price</label>
+        {% if current_mon_Purchase_price %}
+          <p id="Data">{{ current_mon_Purchase_price.price }}</p>
+        {% else %}
+          <p id="Data">Purchase:- 0.0</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

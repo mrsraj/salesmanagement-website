@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+     input[type='text'],
+      input[type='Email'],
+      input[type='phone'],
+      input[type='password']  
+      {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+     
+      .fbody{
+        overflow: hidden;
+        background: linear-gradient(45deg, rgb(69, 120, 69), rgb(122, 79, 79), rgb(73, 73, 121), rgb(167, 86, 100));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .sub{
+        float: right;
+        padding: 10px 16px;
+        margin: 0px;
+        border: none;
+        border: 2px solid green;
+        border-radius: 10px;
+        background-color: #ccc;
+      }
+      .sub:hover{
+        background-color: green;
+        color: black;
+      }
+      .log{
+        background-color: darkseagreen;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .log:hover{
+        background-color: aliceblue;
+        color: black;
+      }
+
+      .form{
+        background-color: transparent;
+        padding: 20px; 
+        width: 50%;
+      }
+
+      .messages{
+        width: 100%;
+        text-align: center;
+      }
+
+      label{
+        font-size: 20px;
+      }
+      input{
+        font-size: 17px;
+      }
+
+      @media (max-width: 360px){
+        .form{
+          width: 90%;
+          height: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body class="fbody">
+    <form id="mypage" class="form" action="/savedata/" method="post">
+
+      <div class="messages">
+        <ul >
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: greenyellow;">
+    
+            {{ message }}
+    
+            </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      {% csrf_token %}
+      <h2 style="color:green; text-align:center;">User Registration Form</h2>
+      <label for="fname">Name</label> <br />
+      <input type="text" id="fname" name="fname" size="50" placeholder="Enter Name" required /><br />
+
+      <label for="Email">Email Id</label><br />
+      <input type="email" id="Email" name="Email" size="50" placeholder="Enter Email" required /><br />
+
+      <label for="phone">Mobile No.</label><br />
+      <input type="phone" id="phone" name="phone" size="50" placeholder="Enter Mobile No" required /><br />
+
+      <label for="pswd">Password</label><br />
+      <input type="password" id="pswd" name="pswd" size="50" placeholder="Enter Password" required /><br />
+
+      <label for="cpswd">Conform Password</label><br />
+      <input type="password" id="cpswd" name="cpswd" size="50" placeholder="Enter Password" required /><br /> <br />
+
+      <a class="log" href="/">Login Page</a>
+       
+      <button class="sub" type="submit">Submit</button> <br>
+      <p id="sub"><h1></h1></p>
+    </form>
+
+
+    <script>
+
+      // Function to hide messages after 2 seconds
+      function hideMessages() {
+        var messages = document.querySelectorAll('.messages li');
+        messages.forEach(function (message) {
+          setTimeout(function () {
+            message.style.display = 'none';
+          }, 3000); // Hide after 2 seconds
+        });
+      }
+  
+      // Call the function when the page loads
+      document.addEventListener('DOMContentLoaded', function () {
+        hideMessages();
+      });
+    </script>
+  </body>
+</html>

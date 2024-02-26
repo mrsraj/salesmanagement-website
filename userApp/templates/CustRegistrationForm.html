@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Registration</title>
+  <style>
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .C_Selection {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+
+    .C_Selection>option {
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    body {
+      justify-content: center;
+      display: flex;
+    }
+
+    form {
+      margin: 80px;
+    }
+
+    .messages {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .messages li {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "ProjectNav.html" %}
+
+  <form action="/CustData/" method="post">
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}" {% endif %} style="background-color: greenyellow;">
+
+        {{ message }}
+
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <script>
+
+      // Function to hide messages after 2 seconds
+      function hideMessages() {
+        var messages = document.querySelectorAll('.messages li');
+        messages.forEach(function (message) {
+          setTimeout(function () {
+            message.style.display = 'none';
+          }, 3000); // Hide after 2 seconds
+        });
+      }
+
+      // Call the function when the page loads
+      document.addEventListener('DOMContentLoaded', function () {
+        hideMessages();
+      });
+    </script>
+
+    {% csrf_token %}
+    <h2 style="color: red; text-align:center;">Customer Registration Form</h2>
+
+
+    <label for="Name">Name</label><br />
+    <input type="text" id="Name" name="Name" size="50" placeholder="Enter Name" required /><br />
+
+
+    <label for="Mob_No">Mobile No.</label><br />
+    <input type="phone" id="Mob_No" name="Mob_No" size="50" placeholder="Enter Mobile No" required /><br />
+
+
+    <label for="Addr">Address</label><br />
+    <input type="text" id="Addr" name="Addr" size="50" placeholder="Enter Address" required /><br />
+
+
+    <label for="Type">Customer Type?</label>
+    <select class="C_Selection" name="Type" id="Type">
+      <option value="none">Select an Option</option>
+      <option value="Supplier">Supplier</option>
+      <option value="Client">Client</option>
+    </select><br><br>
+
+
+    <input type="submit" value="Submit"
+      style="background-color: green; float: right; padding: 10px 22px;" /><br /><br />
+  </form>
+
+
+</body>
+
+</html>
