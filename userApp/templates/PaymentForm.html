@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Data</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'PayDetails.css' %}" />
+  </head>
+
+  <body>
+    
+    <div class="formContainer">
+      {% csrf_token %}
+      <form action="/payment/" method="post" class="form1" id="hide">
+        <div class="inputfile">
+          <label for="">Select Type</label><br />
+          <select name="" id="">
+            <option>select type</option>
+            <option value="Client">Client</option>
+            <option value="Supplier">Supplier</option>
+          </select>
+        </div>
+
+        <div class="inputfile">
+          <label for="">Select Name</label><br />
+          <select name="" id="">
+            <option value=""></option>
+          </select>
+        </div>
+
+        <div class="inputfile">
+          <label for="Amount">Amount</label> <br />
+          <input type="number" name="Amount" id="Amount" style="color: green;" />
+        </div>
+
+        <div class="inputfile">
+          <label for="method">Method</label><br />
+          <select name="" id="">
+            <option value="PhonePe">PhonePe</option>
+            <option value="Cash">Cash</option>
+            <option value="Paytm">Paytm</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Submit</button>
+        </div>
+        <div>
+          <button type="button" onclick="paymentfun()" class="btn1">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="/static/PaymentForm.js"></script>
+  </body>
+</html>

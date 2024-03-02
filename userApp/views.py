@@ -207,6 +207,11 @@ def apifunction(request,type):
         
         
 def PaymentPage(request):
-    page = loader.get_template('PaymentPage.html')
+    page = loader.get_template('PayDetails.html')
     return HttpResponse(page.render())
     
+@csrf_exempt
+def PaymentForm(request):
+    paymentPage = loader.get_template('PaymentForm.html')
+    return HttpResponse(paymentPage.render())
+        

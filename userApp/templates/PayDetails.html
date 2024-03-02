@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Data</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'PayDetails.css' %}" />
+  </head>
+
+  <body>
+    {% include 'ProjectNav.html' %}
+
+    {% comment %} <div style="background-color: red;height: 300px; top: 80px;position: relative;"></div> {% endcomment %}
+
+    <div id="includepage">
+      {% include 'PaymentForm.html' %}
+    </div>
+
+    <div class="tableContainer">
+      <table>
+        <tr>
+          <th>
+            <button id="btn" class="btn" onclick="paymentfun()">Pay</button>
+          </th>
+          <th colspan="4">
+            <input type="search" name="" id="" placeholder="Search" style="padding: 5px;" />
+          </th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Payment</th>
+          <th>Method</th>
+          <th>Date</th>
+        </tr>
+
+        <tr>
+          <td>{{ data.id }}</td>
+          <td>{{ data.Name }}</td>
+          <td>{{ data.Mob_No }}</td>
+          <td>{{ data.Addr }}</td>
+          <td>{{ data.fk_User_Id }}</td>
+        </tr>
+      </table>
+    </div>
+
+    {% comment %} <div class="formContainer" id="hide1">
+      <form action="updaterecord/{{ customer.id }}" method="post" class="form1" id="hide">
+        {% csrf_token %}
+        <div class="inputfile">
+          <label for="Name">Name</label><br />
+          <input value="{{ customer.Name }}" type="text" name="Name" id="Name" /> <br />
+        </div>
+
+        <div class="inputfile">
+          <label for="Mobile No">Mobile No</label> <br />
+          <input value="{{ customer.Mob_No }}" type="number" name="Mobile No" id="Mobile No" /> <br />
+        </div>
+
+        <div class="inputfile">
+          <label for="Address">Address</label> <br />
+          <input value="{{ customer.Addr }}" type="text" name="Address" id="Address" /> <br />
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Update</button>
+        </div>
+        <div>
+          <button type="button" onclick="update1()" class="btn1">Cancel</button>
+        </div>
+      </form>
+    </div> {% endcomment %}
+
+    {% comment %} <script src="{% static 'PayDetails.js' %}"></script> {% endcomment %}
+    <script>
+      let y = document.getElementById('includepage')
+      y.style.display = 'none'
+      function paymentfun() {
+        if (y.style.display === 'none') {
+          y.style.display = 'flex'
+        } 
+        else {
+          y.style.display = 'none'
+        }
+      }
+    </script>
+  </body>
+</html>

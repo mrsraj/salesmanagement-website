@@ -1,101 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Data</title>
+    <link rel="stylesheet" href="/static/ClientShow.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Data</title>
-  <link rel="stylesheet" href="/static/ClientShow.css" />
-</head>
+  <body>
+    {% include 'ProjectNav.html' %}
+    <div class="paybtndiv" style="background-color: green; text-align: center; height: 80px; width: 100%;">btn div</div>
 
-<body>
-  {% include 'ProjectNav.html' %}
-  <div class="tableContainer">
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Mobile No</th>
-        <th>Address</th>
-        <th>User ID</th>
-        <th>ACTION</th>
-      </tr>
+    <div class="paybtndiv" style="background-color: brown; text-align: center; width: 100%;">btn div</div>
 
-      {% if DataSet %}
-      {% for data in DataSet %}
-      <tr>
-        <td>{{ data.id }}</td>
-        <td>{{ data.Name }}</td>
-        <td>{{ data.Mob_No }}</td>
-        <td>{{ data.Addr }}</td>
-        <td>{{ data.fk_User_Id }}</td>
-        <td>
-          <a href="#" onclick="update1()"><img src="/static/update.png" /></a>
-          <button type="button"></button>
-          <a href="/delete/{{ data.id }}/" id="del" onclick="return delete1()"><img src="/static/delete.png" /></a>
-        </td>
-      </tr>
-      {% endfor %}
-      {% else %}
-      <td>
-        <b>No Any Data</b>
-      </td>
-      {% endif %}
-    </table>
-  </div>
+    <div class="tableContainer">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Mobile No</th>
+          <th>Address</th>
+          <th>User ID</th>
+          <th>ACTION</th>
+        </tr>
 
-  <div class="formContainer" id="hide1">
+        {% if DataSet %}
+          {% for data in DataSet %}
+            <tr>
+              <td>{{ data.id }}</td>
+              <td>{{ data.Name }}</td>
+              <td>{{ data.Mob_No }}</td>
+              <td>{{ data.Addr }}</td>
+              <td>{{ data.fk_User_Id }}</td>
+              <td>
+                <a href="/update/{{ data.id }}/" onclick="return update1()"><img src="/static/update.png" /></a>
+                
+                <a href="/delete/{{ data.id }}/" id="del" onclick="return delete1()"><img src="/static/delete.png" /></a>
+              </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <td>
+            <b>No Any Data</b>
+          </td>
+        {% endif %}
+      </table>
+    </div>
 
-    <form action="updaterecord/{{ customer.id }}" method="post" class="form1" id="hide">
+    <div class="formContainer" id="hide1">
+      <form action="updaterecord/{{ customer.id }}" method="post" class="form1" id="hide">
+        {% csrf_token %}
+        <div class="inputfile">
+          <label for="Name">Name</label><br />
+          <input value="{{ customer.Name }}" type="text" name="Name" id="Name" /> <br />
+        </div>
 
-      {% csrf_token %}
-      <div class="inputfile">
-        <label for="Name">Name</label><br />
-        <input value="{{customer.Name}}" type="text" name="Name" id="Name"/> <br />
-      </div>
+        <div class="inputfile">
+          <label for="Mobile No">Mobile No</label> <br />
+          <input value="{{ customer.Mob_No }}" type="number" name="Mobile No" id="Mobile No" /> <br />
+        </div>
 
-      <div class="inputfile">
-        <label for="Mobile No">Mobile No</label> <br />
-        <input value="{{customer.Mob_No}}" type="number" name="Mobile No" id="Mobile No" /> <br />
-      </div>
+        <div class="inputfile">
+          <label for="Address">Address</label> <br />
+          <input value="{{ customer.Addr }}" type="text" name="Address" id="Address" /> <br />
+        </div>
 
-      <div class="inputfile">
-        <label for="Address">Address</label> <br />
-        <input value="{{ customer.Addr }}" type="text" name="Address" id="Address" /> <br />
-      </div>
+        <div>
+          <button type="submit" class="btn">Update</button>
+        </div>
+        <div>
+          <button type="button" onclick="update1()" class="btn1">Cancel</button>
+        </div>
+      </form>
+    </div>
 
-      <div>
-        <button type="submit" class="btn">Update</button>
-      </div>
-      <div>
-        <button type="button" onclick="update1()" class="btn1">Cancel</button>
-      </div>
-    </form>
-
-  </div>
-
-  <script>
-    let x = document.getElementById('hide1')
-    x.style.display = 'none'
-    function update1() {
-      if (x.style.display == 'none') {
-        x.style.display = 'flex'
-      }
-      else {
-        x.style.display = 'none'
-      }
-    }
-
-    function delete1() {
-      let v = confirm("Want to delete:");
-      if (v == true) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    } 
-  </script>
-</body>
-
+    <script src="/static/ClientShow.js"></script>
+  </body>
 </html>

@@ -41,7 +41,7 @@ img{
     top: 45px;
     display: flex;
     justify-content: center;
-    z-index: 20;
+    z-index: 100;
     width: 99%;
 }
 
@@ -58,7 +58,7 @@ img{
 
 select{
     border-radius: 5px;
-    width: 250px;
+    width: 215px;
     height: 30px;
     padding: 5px;
     font-size: 18px;
@@ -73,7 +73,7 @@ input{
 }
 
 .inputfile{
-    margin: 5px;
+    margin: 3px;
 }
 
 label{
@@ -85,7 +85,7 @@ label{
     border-radius: 10px;
     margin-right: 25px;
     font-size: 20px;
-    padding: 5px 15px;
+    padding: 5px 10px;
 }
 
 .btn:hover{

@@ -20,5 +20,6 @@ urlpatterns = [
     path('DetailsPage.html/',views.detailsPage),
     path('dashboard/<str:type>/',views.apifunction),
     path('payment/',views.PaymentPage),
+    path('payment/',views.PaymentForm),
 ]
  
