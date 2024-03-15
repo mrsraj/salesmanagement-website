@@ -4,57 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navigation Bar</title>
-
-    <style>
-      * {
-        margin: 0px;
-        padding: 0px;
-      }
-      body{
-        background-color: rgb(63, 57, 45);
-        color: #f2f2f2;
-        
-      }
-      .topnav {
-        background-color: #333;
-        position: fixed;
-        top: 0px;
-        width:100%;
-        overflow: hidden;
-        z-index: 2;
-      }
-      
-      .topnav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-      
-      .topnav a:hover {
-        background-color: rgb(200, 240, 170);
-        color: blue;
-      }
-      
-      .topnav a.LogOut {
-        float: right;
-        background-color: grey;
-        color: rgb(229, 235, 71);
-        text-align: center;
-        font-size: 17;
-      }
-      
-      .topnav a.LogOut:hover {
-        background-color: red;
-      }
-      
-      .topnav a.active {
-        background-color: #ec5ce2;
-        color: white;
-      }
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Navbar.css' %}">
   </head>
   <body>
     <div class="topnav">

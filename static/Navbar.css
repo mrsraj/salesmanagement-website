@@ -1,0 +1,54 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgb(63, 57, 45);
+    color: #f2f2f2;
+}
+
+.topnav {
+    background-color: #333;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: rgb(97, 117, 82);
+    color: blue;
+}
+
+.topnav a.LogOut {
+    float: right;
+    background-color: grey;
+    color: rgb(23, 23, 13);
+    text-align: center;
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+    border-radius: 10px;
+}
+
+.topnav a.LogOut:hover {
+    background-color: rgb(123, 21, 21);
+}
+
+.topnav a.active {
+    background-color: #ec5ce2;
+    color: white;
+}
+
+@media screen and (min-width: 480px) {
+    
+}

@@ -1,0 +1,54 @@
+input,
+button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: clamp(0.6rem, 3vw, 1.2rem);
+}
+
+label{
+    font-size: clamp(0.8rem, 3vw, 1.5rem);
+}
+
+h2{
+    color: rgb(0, 255, 234);
+    text-align:center;
+}
+
+.C_Selection {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: clamp(0.6rem, 3vw, 1.2rem);
+}
+
+.C_Selection option {
+
+    font-size: clamp(0.6rem, 3vw, 1.2rem);
+    cursor: pointer;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: rgb(68, 106, 68);
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 1025px) {
+    form {
+        width: 85%;
+    }
+}
